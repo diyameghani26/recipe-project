@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    overflow-x: hidden;  /* horizontal band */
+  overflow-y: auto; 
+}
+
+
+@font-face{
+  font-family:"diya";
+  src:url("/PlayfairDisplay-Italic-VariableFont_wght.ttf")
+}
+

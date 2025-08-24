@@ -89,7 +89,7 @@ export default function Hero() {
    
     <div className="w-96 h-96 md:-mt-96 md:mr-20  md:w-[700px] md:h-auto md:max-h-[70vh]">
    <img 
-    src="public/—Pngtree—happy girl chef cooking delicious_20851012.png"
+    src="/—Pngtree—happy girl chef cooking delicious_20851012.png"
     alt="Chef cooking"
     className="  object-cover md:w-[80%] md:-mt-10 md:ml-50 "
   /> 
@@ -99,3 +99,4 @@ export default function Hero() {
     </div>
   );
 }
+

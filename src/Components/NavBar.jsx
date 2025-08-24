@@ -12,19 +12,19 @@ export default function Navbar() {
 
   const navLinks = (
     <>
-      <NavLink className={(e) => e.isActive ? "text-orange-700" : "text-orange-950"} to="/">Home</NavLink>
-      <NavLink className={(e) => e.isActive ? "text-orange-700" : "text-orange-950"} to="/About">About</NavLink>
-      <NavLink className={(e) => e.isActive ? "text-orange-700" : "text-orange-950"} to="/Recipes">Recipes</NavLink>
-      <NavLink className={(e) => e.isActive ? "text-orange-700" : "text-orange-950"} to="/Create">Create recipe</NavLink>
+      <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/">Home</NavLink>
+      <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/About">About</NavLink>
+      <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/Recipes">Recipes</NavLink>
+      <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/Create">Create recipe</NavLink>
     </>
   )
 
   return (
     <>
-    <nav className="italic flex items-center justify-center   relative -mt-8 md:mt-1 md:ml-3 ">
-       <div className="w-20 h-12 flex ">
+    <nav className="italic flex items-center md:justify-center justify-start  relative -mt-8 md:mt-1 md:ml-3 ">
+       <div className="w-15 h-12 flex ">
         <img 
-          className="h-full w-auto object-contain md:absolute left-0" 
+          className="h-full w-auto object-contain md:absolute left-0 mt-9 md:mt-0 " 
           src="/logo.png" 
           alt="Logo" 
         />

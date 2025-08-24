@@ -4,7 +4,7 @@ import NavBar from "./Components/NavBar.jsx"
 
 const App = () => {
   return (
-  <div className="sm:py-10 sm:px-10 bg-orange-100  text-xl w-full h-screen font-medium md:px-0 md:py-8 ">
+  <div className="py-2 px-2 bg-orange-100  min-h-screen text-xl w-full  font-medium  ">
   <NavBar />
   <Mainroutes />
 </div>
@@ -13,5 +13,5 @@ const App = () => {
 
 export default App
 
-// md:bg-[url('/kitchen.jpg')]
+
 

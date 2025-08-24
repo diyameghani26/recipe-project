@@ -1,21 +1,36 @@
-
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import axios from "../utils/axios";
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const getproduct = async () =>{
+    try{
+      const response = await axios.get(
+        "products/1")
+      console.log(response.data)
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    console.log("home.jsx mounted");
+   getproduct()
+    return()=>{
+      console.log("home.jsx unmount")
+    }
+  })
 
   return (
-    <div className=" mt-9 md:mt-2 ml-3">
+    <div className=" bg-orange-100 -mt-7 md:mt-2 ml-3 ">
       {/* Navbar */}
       <nav className="mt-5 flex items-center md:justify-between ">
      
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(true)}
-          className="md:hidden text-orange-700 text-3xl -mt-1 mr-4"
+          className="md:hidden text-orange-700 text-3xl -mt-1  ml-72"
         >
           ☰
         </button>
@@ -60,12 +75,13 @@ export default function Hero() {
        
         
 <div>
-  <Link to = "/create" >
-   <button className="block mt-9  px-3 py-2 border-2 border-orange-800 text-orange-700 rounded-full hover:bg-orange-950 hover:text-orange-100 transition-all duration-300 italic md:ml-64 md:px-5" >
-    Create Recipe
-
+ 
+   <button 
+   onClick={getproduct}
+   className="block mt-9  px-3 py-2 border-2 border-orange-800 text-orange-700 rounded-full hover:bg-orange-950 hover:text-orange-100 transition-all duration-300 italic md:ml-64 md:px-5" >
+   Get Products
     </button>
-      </Link>  
+   
     </div>
      
 
@@ -75,7 +91,7 @@ export default function Hero() {
    <img 
     src="public/—Pngtree—happy girl chef cooking delicious_20851012.png"
     alt="Chef cooking"
-    className="w-full h-full object-contain "
+    className="  object-cover md:w-[80%] md:-mt-10 md:ml-50 "
   /> 
 </div>
   </div>

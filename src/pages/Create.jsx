@@ -9,16 +9,22 @@ const Create = () => {
    const navigate = useNavigate()
   const {data,setdata} = useContext(recipecontext);
   const { register, handleSubmit , reset } = useForm();
+  
+ 
+ 
   const SubmitHandler = (recipe)=>{
     recipe.id=nanoid();
-  
-    setdata([...data , recipe])
+   const copydata = [...data];
+   copydata.push(recipe)
+    setdata(copydata)
+
+ localStorage.setItem("recipes" , JSON.stringify(copydata) )
     toast.success("New Recipe Created!");
     reset();
     navigate("/recipes")
   }
   return (
-     <div  className="  md:bg-[url('/kitchen.jpg')]  md:bg-cover md:bg-center w-full  "> 
+     <div  className=" bg-orange-100 w-full h-[830px]  md:bg-[url('/kitchen.jpg')] md:mt-5 md:bg-cover md:bg-center md:h-[850px]  "> 
       <img src="/chef.png" alt="chef"
       className="   w-32 h-38 object-cover md:-mt-8 md:mx-auto md:block" />   
     <div className="   w-4/5 mx-auto  flex items-center border-2 border-orange-800 rounded-xl px-4 py-10  pb-1 -mt-5  shadow-sm bg-orange-100 bg-opacity-65

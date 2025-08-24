@@ -9,15 +9,17 @@ const Recipes = () => {
 
   const {data} = useContext(recipecontext);
 
-  const renderrecipes = data.map((recipe) =>(
+  const renderrecipes = data?.map((recipe) =>(
     <RecipeCard key={recipe.id} recipe={recipe}/>
   ) 
 )
   return (
-    <div className='md:flex flex-wrap md:mt-6'>
-     {data.length > 0 ? renderrecipes : "No recipes found!"}
+    <div className='bg-orange-100 flex-wrap md:flex md:items-center md:justify-center md:mt-6 '>
+     {data?.length > 0 ? renderrecipes : "No recipes found!"}
     </div>
   )
 }
 
 export default Recipes
+
+

@@ -1,13 +1,12 @@
 
-
-
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 import { toast } from "react-toastify";
 import axios from "../utils/axios";
 import "remixicon/fonts/remixicon.css";
+import Favourites from "./Fav";
 
 const SingleRecipe = () => {
   const { data, setdata } = useContext(recipecontext);
@@ -63,27 +62,47 @@ const SingleRecipe = () => {
   };
 
   // favourites
-  const [favourite, setFavourite] = useState(
+  // const [favourite, setFavourite] = useState(
+  //   JSON.parse(localStorage.getItem("fav")) || []
+  // );
+
+   
+  // const FavHandler = () => {
+  //   if (!recipe) return;
+  //   const updated = [...favourite, recipe];
+  //   setFavourite(updated);
+  //   localStorage.setItem("fav", JSON.stringify(updated));
+  //   toast.success("Added to favourites!");
+  // };
+
+  // const UnFavHandler = () => {
+  //   if (!recipe) return;
+  //   const updated = favourite.filter((fav) => fav.id !== recipe.id);
+  //   setFavourite(updated);
+  //   localStorage.setItem("fav", JSON.stringify(updated));
+  //   toast.info("Removed from favourites!");
+  // };
+
+  const [favourite , setfavourite] = useState(
     JSON.parse(localStorage.getItem("fav")) || []
   );
+  // const isFav = favourite.some((fav) => fav.id === recipe?.id);
 
-  const isFav = favourite.some((fav) => fav.id === recipe?.id);
 
-  const FavHandler = () => {
-    if (!recipe) return;
-    const updated = [...favourite, recipe];
-    setFavourite(updated);
-    localStorage.setItem("fav", JSON.stringify(updated));
-    toast.success("Added to favourites!");
+  const FavHandler = () =>{
+    let copyfav = [...favourite]
+    copyfav.push(recipe)
+    setfavourite(copyfav);
+    localStorage.setItem("fav", JSON.stringify(copyfav))
+     toast.success("Added to favourites!");
   };
 
-  const UnFavHandler = () => {
-    if (!recipe) return;
-    const updated = favourite.filter((fav) => fav.id !== recipe.id);
-    setFavourite(updated);
-    localStorage.setItem("fav", JSON.stringify(updated));
+  const UnFavHandler = () =>{
+    const filterfav = favourite.filter((f) => f.id != recipe?.id);
+    setfavourite(filterfav)
+    localStorage.setItem("fav",JSON.stringify(filterfav))
     toast.info("Removed from favourites!");
-  };
+  }
 
   if (!recipe) {
     return <p className="text-center text-red-600">Recipe not found!</p>;
@@ -93,13 +112,14 @@ const SingleRecipe = () => {
     <div className="bg-orange-100 items-start mt-5 gap-10 w-full flex flex-col md:ml-52 md:flex-row md:mr-32">
       <div className="w-[95%] md:w-[65%] mt-5 ml-2 bg-orange-300 py-4 md:mr-3 md:mb-1 shadow-2xl overflow-hidden p-5 md:ml-24 rounded-3xl relative">
         {/* Fav / Unfav icon */}
-        {isFav ? (
+        {favourite.find((f)=> f.id == recipe?.id) ? (
           <i
             onClick={UnFavHandler}
             className="absolute right-[8%] text-2xl md:right-[5%] md:text-4xl text-orange-900 ri-heart-fill cursor-pointer"
           ></i>
         ) : (
-          <i
+        
+           <i
             onClick={FavHandler}
             className="absolute right-[8%] text-2xl md:right-[5%] md:text-4xl text-orange-900 ri-heart-line cursor-pointer"
           ></i>

@@ -50,6 +50,7 @@ export default function Hero() {
           <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
           <NavLink to="/recipes" onClick={() => setMenuOpen(false)}>Recipes</NavLink>
           <NavLink to="/create" onClick={() => setMenuOpen(false)}>Create Recipe</NavLink>
+          <NavLink to="/favourite" onClick={() => setMenuOpen(false)}>Favourites</NavLink>
         </div>
       )}
 

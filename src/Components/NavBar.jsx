@@ -16,6 +16,8 @@ export default function Navbar() {
       <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/About">About</NavLink>
       <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/Recipes">Recipes</NavLink>
       <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/Create">Create recipe</NavLink>
+      <NavLink className={(e) => e.isActive ? "text-orange-800" : "text-orange-950"} to="/favourite">Favourites</NavLink>
+      
     </>
   )
 

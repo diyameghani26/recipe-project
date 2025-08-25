@@ -5,6 +5,7 @@ import About from '../pages/About'
 import Recipes from '../pages/Recipes'
 import Create from '../pages/Create'
 import SingleRecipe from '../pages/SingleRecipe';
+import Fav from "../pages/Fav";
 
 
 
@@ -16,6 +17,7 @@ const Mainroutes = () => {
          <Route path = "/Recipes"  element = {<Recipes/>}/>
            <Route path = "/Recipes/details/:id"  element = {<SingleRecipe/>}/>
         <Route path = "/Create"  element = {<Create/>}/>
+        <Route path = "/favourite"  element = {<Fav/>}/>
      </Routes>
   )
 }
